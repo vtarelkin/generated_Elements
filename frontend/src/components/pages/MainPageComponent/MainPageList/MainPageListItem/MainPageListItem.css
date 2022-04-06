@@ -1,0 +1,21 @@
+.main-page-list-item {
+    height: 22px;
+    font-family: 'Saab', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 16px;
+    width: 146px;
+    background: #F2F2F2;
+    border-radius: 4px;
+    padding: 4px 12px;
+    list-style-type: none;
+    margin-right: 10px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.main-page-list-item svg {
+    height: 18px;
+    width: 18px;
+}
