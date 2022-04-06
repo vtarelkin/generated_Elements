@@ -9,8 +9,8 @@ const MainPageListItem = ({className, key, id, value}) => {
     return (
         <li key={key} className={className}>
             <ListItemIcon/>
-            {id}
-            {value}
+            <span>{`id = ${id}`}</span>
+            <span>{`value = ${value}`}</span>
         </li>
     )
 };

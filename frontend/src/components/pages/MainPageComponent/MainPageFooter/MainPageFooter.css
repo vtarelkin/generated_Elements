@@ -1,0 +1,10 @@
+.main-page-footer {
+    text-align: center;
+    width: 100%;
+    height: 20px;
+}
+
+.main-page-footer span {
+    font-family: 'Saab', sans-serif;
+    font-size: 6px;
+}

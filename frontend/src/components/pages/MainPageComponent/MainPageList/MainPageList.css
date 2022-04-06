@@ -1,10 +1,57 @@
 .main-page-list {
-    width: 300px;
-    height: 700px;
+    background-color: #d2d2d2;
+    /*we have paddings!*/
+    width: 280px;
+    border-radius: 10px;
+    height: 680px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    padding-left: 0;
-    margin-bottom: 0;
+    padding: 10px 10px;
+    margin-top: 0;
+}
+
+.main-page-list-span {
+    font-family: 'Saab', sans-serif;
+    color: #d2d2d2;
+    margin-left: 12px;
+}
+
+.main-page-list-span-and-list {
+    display: flex;
+    flex-flow: column;
+}
+
+.main-page-list-wrapper {
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.main-page-list-button-container {
+    margin-left: auto;
+    margin-right: calc(100% / 2);
+    display: flex;
+    flex-flow: column;
+}
+
+.main-page-list-button-container button {
+    font-family: 'Saab', sans-serif;
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 220px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #333;
+    background: #fff;
+    box-shadow: 0 3px 20px 0 #0000003b;
+    cursor: pointer;
+    align-self: center;
+    margin-bottom: 10px;
+}
+
+.main-page-list-button-container span {
+    font-family: 'Saab', sans-serif;
+    color: #d2d2d2;
 }

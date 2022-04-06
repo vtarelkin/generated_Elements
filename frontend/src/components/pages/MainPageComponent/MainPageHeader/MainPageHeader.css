@@ -30,18 +30,6 @@
     font-size: 80px;
 }
 
-.main-page-header button {
-    font-family: 'Saab', sans-serif;
-    border: none;
-    outline: none;
-    height: 40px;
-    padding: 10px 20px;
-    border-radius: 50px;
-    color: #333;
-    background: #fff;
-    box-shadow: 0 3px 20px 0 #0000003b;
-}
-
 .main-page-header button:hover {
     cursor: pointer;
 }
