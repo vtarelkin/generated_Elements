@@ -4,14 +4,14 @@ import {ReactComponent as ListItemIcon} from '../../../../../images/item_icon.sv
 
 import './MainPageListItem.css';
 
-const MainPageListItem = ({className, key, id, value}) => {
+const MainPageListItem = ({className, id, value}) => {
 
     return (
-        <li key={key} className={className}>
-            <ListItemIcon/>
-            <span>{`id = ${id}`}</span>
-            <span>{`value = ${value}`}</span>
-        </li>
+            <li className={className}>
+                <ListItemIcon/>
+                <span>{`id = ${id}`}</span>
+                <span>{`value = ${value}`}</span>
+            </li>
     )
 };
 

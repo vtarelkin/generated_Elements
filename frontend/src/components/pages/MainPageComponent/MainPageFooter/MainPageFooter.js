@@ -1,10 +1,12 @@
 import React from 'react';
 
+import {appConstants} from '../../../../constants/appConstants';
+
 import './MainPageFooter.css';
 
 const MainPageFooter = () => (
     <footer className="main-page-footer">
-        <span>made by Tarelkin Valery</span>
+        <span>{appConstants.COPYRIGHT_TEXT}</span>
     </footer>
 );
 

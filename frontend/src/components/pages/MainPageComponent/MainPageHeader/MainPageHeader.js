@@ -1,10 +1,12 @@
 import React from 'react';
 
+import {appConstants} from '../../../../constants/appConstants';
+
 import './MainPageHeader.css';
 
 const MainPageHeader = () => {
 
-    const urlToRedirect = 'https://github.com/vtarelkin';
+    const urlToRedirect = appConstants.HEADER_BUTTON_URL_TO_REDIRECT;
 
     const handleHeaderButtonClick = () => {
         window.location = urlToRedirect;
@@ -13,8 +15,8 @@ const MainPageHeader = () => {
     return (
         <header className="main-page-header">
             <div className="main-page-header-wrapper">
-                <h1>Just a simple React Redux App</h1>
-                <button onClick={handleHeaderButtonClick}>Visit my GitHub</button>
+                <h1>{appConstants.HEADER_TEXT}</h1>
+                <button onClick={handleHeaderButtonClick}>{appConstants.HEADER_BUTTON_TEXT}</button>
             </div>
         </header>
     )

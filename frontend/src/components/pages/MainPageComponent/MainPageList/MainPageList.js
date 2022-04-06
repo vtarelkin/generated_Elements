@@ -1,12 +1,14 @@
 import React from 'react';
+import moment from 'moment';
 
 import MainPageListItem from './MainPageListItem';
+import {appConstants} from '../../../../constants/appConstants';
 
 import './MainPageList.css';
 
 const MainPageList = () => {
 
-    const date = Date.now();
+    const formattedDate = moment().format("DD MMM YYYY h:mm A");
 
     const listOfItems = [
         {id: 0, value: 0},
@@ -22,17 +24,18 @@ const MainPageList = () => {
                 <label className="main-page-list-span">A main page list</label>
                 <ul className="main-page-list">
                     {listOfItems.map(singleItem => (
-                        <MainPageListItem
-                            key={singleItem.id}
-                            id={singleItem.id}
-                            value={singleItem.value}
-                            className="main-page-list-item"/>
+                        <React.Fragment key={singleItem.id}>
+                            <MainPageListItem
+                                id={singleItem.id}
+                                value={singleItem.value}
+                                className="main-page-list-item"/>
+                        </React.Fragment>
                     ))}
                 </ul>
             </div>
             <div className="main-page-list-button-container">
-                <button>Обновить</button>
-                <span>Дата последнего обновления: ${date}</span>
+                <button>{appConstants.REFRESH_BUTTON_CAPTION}</button>
+                <span>{appConstants.TEXT_UNDER_BUTTON} {formattedDate}</span>
             </div>
 
         </div>
