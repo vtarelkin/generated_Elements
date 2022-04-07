@@ -16,8 +16,8 @@ const MainPageComponent = () => {
     const dispatch = useDispatch();
 
     //preparing the data
-    const listOfItems = new Array(10000).fill().map(() => ({
-        id: random(1000, 11000), //random whole number between 1000 and 11000 including
+    const listOfItems = new Array(10000).fill().map((obj, index) => ({
+        id: 1000 + index, //whole number between 1000 and 11000 including
         value: random(200, 1500) //random whole number between 200 and 1500 including
     }));
 
