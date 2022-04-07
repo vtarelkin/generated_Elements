@@ -1,14 +1,7 @@
 .main-page-list {
-    background-color: #d2d2d2;
-    /*we have paddings!*/
-    width: 280px;
-    border-radius: 10px;
-    height: 680px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    padding: 10px 10px;
-    margin-top: 0;
+    background-color: #F2F2F2;
+    padding: 7px 8px 0 18px;
+    outline: none;
 }
 
 .main-page-list-span {

@@ -1,44 +1,57 @@
-import React from 'react';
-import moment from 'moment';
+import React, {useCallback} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {List} from 'react-virtualized';
+import isEqual from 'lodash/isEqual';
+import isEmpty from 'lodash/isEmpty';
 
-import MainPageListItem from './MainPageListItem';
 import {appConstants} from '../../../../constants/appConstants';
+import MainPageListItem from './MainPageListItem';
+import {updateItemsToListData} from '../../../../actions';
 
 import './MainPageList.css';
 
 const MainPageList = () => {
 
-    const formattedDate = moment().format("DD MMM YYYY h:mm A");
+    const dispatch = useDispatch();
 
-    const listOfItems = [
-        {id: 0, value: 0},
-        {id: 1, value: 1},
-        {id: 2, value: 2},
-        {id: 3, value: 3},
-        {id: 4, value: 4},
-        {id: 5, value: 5}];
+    const {listItems} = useSelector(store => store.itemsListReducer, isEqual);
+    const {savedDate} = useSelector(store => store.itemsListReducer, isEqual);
+
+    //function for dispatching an action that will change value to random from 8 000 randomly selected elements
+    const handleRefreshButtonClick = () => {
+        dispatch(updateItemsToListData(listItems));
+    };
+
+    //rendered function for virtual list
+    const rowRenderer = useCallback(({index, key, style}) => (
+        <MainPageListItem
+            index={index}
+            key={key}
+            style={style}
+            className="main-page-list-item"/>
+    ), []);
 
     return (
-        <div className="main-page-list-wrapper">
-            <div className="main-page-list-span-and-list">
-                <label className="main-page-list-span">A main page list</label>
-                <ul className="main-page-list">
-                    {listOfItems.map(singleItem => (
-                        <React.Fragment key={singleItem.id}>
-                            <MainPageListItem
-                                id={singleItem.id}
-                                value={singleItem.value}
-                                className="main-page-list-item"/>
-                        </React.Fragment>
-                    ))}
-                </ul>
+        <>
+            {!isEmpty(listItems) &&
+            <div className="main-page-list-wrapper">
+                <div className="main-page-list-span-and-list">
+                    <label className="main-page-list-span">A main page list</label>
+                    <List className="main-page-list"
+                          height={700}
+                          width={300}
+                          rowCount={listItems.length}
+                          rowRenderer={rowRenderer}
+                          rowHeight={22}>
+                    </List>
+                </div>
+                <div className="main-page-list-button-container">
+                    <button onClick={handleRefreshButtonClick}>{appConstants.REFRESH_BUTTON_CAPTION}</button>
+                    <span>{appConstants.TEXT_UNDER_BUTTON} {savedDate}</span>
+                </div>
             </div>
-            <div className="main-page-list-button-container">
-                <button>{appConstants.REFRESH_BUTTON_CAPTION}</button>
-                <span>{appConstants.TEXT_UNDER_BUTTON} {formattedDate}</span>
-            </div>
-
-        </div>
+            }
+        </>
     )
 };
 

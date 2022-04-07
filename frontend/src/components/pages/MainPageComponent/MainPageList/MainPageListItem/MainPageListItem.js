@@ -1,17 +1,25 @@
-import React from 'react';
+import React, {useMemo} from 'react';
+import isEqual from 'lodash/isEqual';
+import {useSelector} from 'react-redux';
 
 import {ReactComponent as ListItemIcon} from '../../../../../images/item_icon.svg';
 
 import './MainPageListItem.css';
 
-const MainPageListItem = ({className, id, value}) => {
+const MainPageListItem = ({style, index, className}) => {
+
+    const {listItems} = useSelector(store => store.itemsListReducer, isEqual);
+
+    const currentListItem = useMemo(() => listItems[index], [listItems, index]);
 
     return (
+        <div style={style}>
             <li className={className}>
                 <ListItemIcon/>
-                <span>{`id = ${id}`}</span>
-                <span>{`value = ${value}`}</span>
+                <span>{currentListItem.id}</span>
+                <span>{currentListItem.value}</span>
             </li>
+        </div>
     )
 };
 

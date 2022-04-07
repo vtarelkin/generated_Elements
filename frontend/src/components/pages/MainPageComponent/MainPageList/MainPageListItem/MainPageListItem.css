@@ -1,20 +1,19 @@
 .main-page-list-item {
-    height: 14px;
-    width: 250px;
     background: #F2F2F2;
     border-radius: 4px;
-    padding: 4px 12px;
+    padding: 0 6px;
     list-style-type: none;
-    margin-top: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 22px;
 }
 
 .main-page-list-item span {
     font-family: Laksaman, sans-serif;
     font-weight: 500;
-    font-size: 18px;
+    width: 50px;
+    font-size: 14px;
 }
 
 .main-page-list-item svg {
